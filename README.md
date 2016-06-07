@@ -72,6 +72,7 @@ public function afterRender($view, &$output){
 * **excluded_params** - Params list what don't need to be cached if exists and equal to exact value. If value not set then checking to not be a false.
  
 > NOTE 1: in `excluded_params` you need to store Controller variables, not `$_GET/$_POST/$_REQUEST` variables
+
 > NOTE 2: you can add excluded action or parameter from controller by calling `excludeActions` and `excludeParams` methds. See **Additional functionality** section
 
 # Additional functionality
