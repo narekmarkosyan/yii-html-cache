@@ -23,13 +23,13 @@ Add following to your `components` configs
 
 # Usage
 
-Add following code at beginning of `beforeAction` method in your controller
+Add following code at the beginning of `beforeAction` method in your controller
 
 ```php
 Yii::app()->htmlcache->loadFromCache($this, $action);
 ```
 
-Where `$action` is a first parameter of `beforeAction`. Or if you don't have `beforeAction` add following code to your controller
+Where `$action` is a first parameter of `beforeAction`. Or if you don't have `beforeAction` add the following code to your controller
 
 ```php
 /**
@@ -44,13 +44,13 @@ protected function beforeAction($action)
 }
 ```
 
-Add following code at end of `afterRender` method in your controller
+Add the following code at the end of `afterRender` method in your controller
 
 ```php
 $output = Yii::app()->htmlcache->saveToCache($this, $this->action, $output);
 ```
 
-Where `$output` is a second parameter of `afterRender`. Or if you don't have `afterRender` add following code to your controller
+Where `$output` is a second parameter of `afterRender`. Or if you don't have `afterRender` add the following code to your controller
 
 ```php
 /**
@@ -66,29 +66,29 @@ public function afterRender($view, &$output){
 # Settings
 
 * **lifeTime** - lifetime of generated cache in seconds. _Default: 1 day_
-* **extra_params** - parameters in controller that can affects on your final HTML. For example if you have action with product description and it variate for different `id_product` add `extra_params => array('id_product')` to configs
+* **extra_params** - parameters in controller that can affect your final HTML. For example, if you have an action with product description and it variates for different `id_product`, add `extra_params => array('id_product')` to configs
 * **disabled** - `true` if disabled, `false` if enabled. _Default: false_
-* **excluded_actions** - Actions list what don't need to be cached in `array('controller_id'=> array('action1', 'action2'))` format.
-* **excluded_params** - Params list what don't need to be cached if exists and equal to exact value. If value not set then checking to not be a false.
+* **excluded_actions** - Actions list that doesn't need to be cached in `array('controller_id'=> array('action1', 'action2'))` format.
+* **excluded_params** - Params list that doesn't need to be cached if they exist and are equal to exact value. If value not set then checking should not be a false.
  
 > NOTE 1: in `excluded_params` you need to store Controller variables, not `$_GET/$_POST/$_REQUEST` variables
 
-> NOTE 2: you can add excluded action or parameter from controller by calling `excludeActions` and `excludeParams` methds. See **Additional functionality** section
+> NOTE 2: you can add excluded action or parameter from controller by calling `excludeActions` and `excludeParams` methods. See **Additional features** section
 
-# Additional functionality
+# Additional features
 
-There is a few additional methods you can use in your controller.
+There are few additional methods you can use in your controller.
 
 ## directReplace
 
-If you have some parts in your HTML what need to be loaded dynamicly in cache you can use placeholders in view and then replace it with `directReplace` method.
+If you have some parts in your HTML that need to be loaded dynamically in cache you can use placeholders in view and then replace them with `directReplace` method.
 
 ### Params
 
-There are two posibilities for parameters
+There are two ways for parameters
 
-* string `$replace_key` - key what need to be replaced
-* string `$value` - HTML part what need to be placed instead of placeholder
+* string `$replace_key` - key that needs to be replaced
+* string `$value` - HTML part that needs to be placed instead of placeholder
 
 **OR**
 
@@ -112,11 +112,11 @@ In `beforeAction` method of your controller
     Yii::app()->htmlcache->directReplace(array("DATE_PLACEHOLDER"=> date("Y-m-d H:i:s")));
 ```
 
-> NOTE: placeholder always need to be UPPERCASE and in {BRACES}
+> NOTE: placeholder always needs to be UPPERCASE and in {BRACES}
 
 ## excludeActions
 
-Points what action do not need to be cached.
+Adding action to the list of excluded actions.
  
 ### Params
 
@@ -162,7 +162,7 @@ In `beforeAction` method of your controller
 
 ## excludeParams
 
-Points what params in this action with some values do not need to be cached
+Adding params to the list of excluded params.
  
 ### Params
 
@@ -187,7 +187,7 @@ In `beforeAction` method of your controller
 
 ## allowParams
 
-Removes params from list of excluded params
+Removes params from the list of excluded params
  
 ### Params
 
@@ -207,9 +207,14 @@ In `beforeAction` method of your controller
     
     // OR
     
-    Yii::app()->htmlcache->allowParams($this, array("my_action" => array(1, 2))); // Removes my_action == 1 )R my_action == 1 mentions from this controller if exsists
+    Yii::app()->htmlcache->allowParams($this, array("my_action" => array(1, 2))); // Removes my_action == 1 OR my_action == 1 mentions from this controller if exsists
     
     // OR
     
     Yii::app()->htmlcache->allowParams($this, null); // Removes ALL excluded params of this controller
 ```
+
+# FAQ
+
+* Q: **I'm doing everythink like described but it doesn't work.**
+  A: hmm...
