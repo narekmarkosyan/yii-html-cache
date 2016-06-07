@@ -216,5 +216,5 @@ In `beforeAction` method of your controller
 
 # FAQ
 
-* Q: **I'm doing everythink like described but it doesn't work.**
-  A: hmm...
+> **I'm doing everythink like described but it doesn't work.**
+hmm...
