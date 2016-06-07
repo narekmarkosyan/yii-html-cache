@@ -217,4 +217,5 @@ In `beforeAction` method of your controller
 # FAQ
 
 > **I'm doing everythink like described but it doesn't work.**
+
 hmm...
